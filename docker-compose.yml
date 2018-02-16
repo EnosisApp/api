@@ -1,0 +1,28 @@
+mongo:
+    container_name: mongo
+    image: mongo:latest
+    expose:
+        - "27017"
+    ports:
+      - "27017:27017"
+    volumes:
+      - ../dev_databases:/data/db
+
+# api:
+#   image: captiz/node
+#   volumes:
+#     - ./app/:/application
+#   ports:
+#     - "8001:8001"
+#     - "8002:8002"
+#   links:
+#     - mongo:mongo
+#   environment:
+#     ENVIRONMENT: dev
+#     PORT: 8001
+#     MONGO_HOST: mongo:27017
+#     MONGO_DB: enosisapi
+#     NODE_PATH: /application/libs
+#     SSL_KEY_PATH: dev_key.pem
+#     SSL_CERT_PATH: dev_cert.pem
+#   command: node server.js
